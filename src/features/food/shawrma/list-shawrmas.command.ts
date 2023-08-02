@@ -1,9 +1,6 @@
 import dataSource from "../../../core/data-source";
-import { deferredJoinPagination, execute } from "../../../core/execute";
-import { listen } from "../../../core/operation";
-import { createSchema } from "../../../core/validation";
+import { execute, deferredJoinPagination } from "../../../core/execute";
 import Shawrma from "../shawrma.entity";
-
 export const listShawrmasSchema = createSchema<ListShawrmasInput>({
   "pageSize": {
     "type": "number",
@@ -20,6 +17,9 @@ export interface ListShawrmasInput {
     pageSize: number;
     pageNo?: number;
 }
+
+import { createSchema } from "../../../core/validation";
+import { listen } from "../../../core/operation";
 
 export async function listShawrmas(input: ListShawrmasInput) {
     const shawrmaRepository = dataSource.getRepository(Shawrma);

@@ -1,8 +1,5 @@
 import dataSource from "../../../core/data-source";
-import { listen } from "../../../core/operation";
-import { createSchema } from "../../../core/validation";
 import Shawrma from "../shawrma.entity";
-
 export const updateShawrmaSchema = createSchema<UpdateShawrmaInput>({
   "id": {
     "type": "string"
@@ -12,6 +9,9 @@ export const updateShawrmaSchema = createSchema<UpdateShawrmaInput>({
 export interface UpdateShawrmaInput {
     id?: string;
 }
+
+import { createSchema } from "../../../core/validation";
+import { listen } from "../../../core/operation";
 
 export async function updateShawrma(input: UpdateShawrmaInput) {
     const shawrmaRepository = dataSource.getRepository(Shawrma);

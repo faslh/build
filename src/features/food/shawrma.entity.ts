@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, RelationId, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, RelationId, ManyToOne, OneToMany, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, JoinColumn, JoinTable, ManyToMany } from "typeorm";
 
 @Entity()
 export default class Shawrma {
