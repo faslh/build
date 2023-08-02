@@ -11,7 +11,7 @@
         "tags": [
           "Shawrma"
         ],
-        "operationId": "7084d0fd-dc47-4806-9f0c-76ed44116af0",
+        "operationId": "866a11be-17a4-4204-a602-cf841ee181cb",
         "summary": "Replace Shawrma",
         "responses": {
           "200": {
@@ -55,7 +55,7 @@
         "tags": [
           "Shawrma"
         ],
-        "operationId": "bbfe3d4a-e310-4358-a0b3-4acac61597d3",
+        "operationId": "22428acb-e06a-4249-b827-d5fbdcd131dc",
         "summary": "Delete Shawrma",
         "responses": {
           "200": {
@@ -99,7 +99,7 @@
         "tags": [
           "Shawrma"
         ],
-        "operationId": "895b7d31-dd76-4c66-99c7-11f3019285c6",
+        "operationId": "efdad139-536e-4e17-9e9e-713bfb0a397b",
         "summary": "Shawrma Exists",
         "responses": {
           "200": {
@@ -143,7 +143,7 @@
         "tags": [
           "Shawrma"
         ],
-        "operationId": "3be1b3c9-8f38-447c-835a-685a099742d2",
+        "operationId": "d10fae05-7b27-4c91-9752-1a8df0e8c463",
         "summary": "Update Shawrma",
         "responses": {
           "200": {
@@ -187,7 +187,7 @@
         "tags": [
           "Shawrma"
         ],
-        "operationId": "d4107f95-6a7a-462e-bbd4-fbe0d7cf923b",
+        "operationId": "b97e10f3-88be-4be9-8860-f104da6140c1",
         "summary": "Get Shawrma",
         "responses": {
           "200": {
@@ -233,7 +233,7 @@
         "tags": [
           "Shawrma"
         ],
-        "operationId": "9bb3a3a8-76a2-41c7-88c1-da900b46f1a3",
+        "operationId": "e29dba1f-977d-4a69-97b3-b1ccefd74765",
         "summary": "Create Shawrma",
         "requestBody": {
           "required": true,
@@ -295,7 +295,7 @@
         "tags": [
           "Shawrma"
         ],
-        "operationId": "c96c836c-16be-4ff8-aafe-6b93a77da324",
+        "operationId": "5ae59395-779d-4380-a79e-870fbe0cb8a2",
         "summary": "List Shawrmas",
         "responses": {
           "200": {
