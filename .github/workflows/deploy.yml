@@ -1,0 +1,88 @@
+name: Deploy To fly.io
+on:
+  workflow_dispatch:
+    inputs:
+      correlationId:
+        description: '"Correlation Id"'
+        required: true
+env:
+  DEMO_TOKEN: fo1_GH0M7yvLWYkunojmEAdN8EwILUiNE0HxROsdHY1UX-4
+  FASLH_API_URL: https://us-central1-capable-vista-373220.cloudfunctions.net/ghevents
+jobs:
+  deploy_to_fly:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: checkout App Repo
+        uses: actions/checkout@v3
+      - id: install_lockfile
+        name: Install Lockfile
+        run: npm install --package-lock-only --legacy-peer-deps
+      - id: cache
+        name: Cache Or Restore Node Modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - id: install_deps
+        name: Install Deps
+        run: npm install
+      - id: build
+        name: Build
+        run: npm run build:prod -- --entry ./src/server.ts
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Collect Env Variables
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          envkey_CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
+          directory: ./
+          file_name: ./dist/.env
+          fail_on_empty: false
+      - name: Import secrets into Fly
+        run: |-
+          flyctl secrets import < ./dist/.env
+          rm -f ./dist/.env
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - id: deploy
+        name: Deploy to Fly.io
+        run: flyctl deploy --remote-only --config ./deploy.toml --verbose
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - uses: fjogeleit/http-request-action@v1
+        if: ${{ always() }}
+        with:
+          url: ${{ env.FASLH_API_URL }}
+          method: POST
+          data: |-
+            {
+              "jobName": "${{ github.job }}",
+              "correlationId": "${{ github.event.inputs.correlationId }}",
+              "statuses": [
+                {
+                  "step": "checkout",
+                  "status": "${{ steps.checkout.outcome }}"
+                },
+                {
+                  "step": "install_lockfile",
+                  "status": "${{ steps.install_lockfile.outcome }}"
+                },
+                {
+                  "step": "cache",
+                  "status": "${{ steps.cache.outcome }}"
+                },
+                {
+                  "step": "install_deps",
+                  "status": "${{ steps.install_deps.outcome }}"
+                },
+                {
+                  "step": "build",
+                  "status": "${{ steps.build.outcome }}"
+                },
+                {
+                  "step": "deploy",
+                  "status": "${{ steps.deploy.outcome }}"
+                }
+              ]
+            }

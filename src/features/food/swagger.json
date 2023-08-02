@@ -1,0 +1,392 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Food",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/{id}/shawrma": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Shawrma"
+        ],
+        "operationId": "2d9cfef9-b8bb-40c4-91a7-1e7439dce71a",
+        "summary": "Replace Shawrma",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "schema": {},
+              "name": "id",
+              "in": "path",
+              "example": ""
+            }
+          ]
+        }
+      },
+      "delete": {
+        "description": "",
+        "tags": [
+          "Shawrma"
+        ],
+        "operationId": "5d4f8024-1773-469a-bd86-1d70f34b5826",
+        "summary": "Delete Shawrma",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "schema": {},
+              "name": "id",
+              "in": "path",
+              "example": ""
+            }
+          ]
+        }
+      },
+      "head": {
+        "description": "",
+        "tags": [
+          "Shawrma"
+        ],
+        "operationId": "4b9261a6-89c8-45cb-b239-f3f67363d027",
+        "summary": "Shawrma Exists",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "schema": {},
+              "name": "id",
+              "in": "path",
+              "example": ""
+            }
+          ]
+        }
+      },
+      "patch": {
+        "description": "",
+        "tags": [
+          "Shawrma"
+        ],
+        "operationId": "0498b4a0-e2a9-45c4-a8fd-9e61ccb53695",
+        "summary": "Update Shawrma",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "schema": {},
+              "name": "id",
+              "in": "path",
+              "example": ""
+            }
+          ]
+        }
+      },
+      "get": {
+        "description": "",
+        "tags": [
+          "Shawrma"
+        ],
+        "operationId": "a4876168-5d5f-4f34-831a-b2b446a99fc9",
+        "summary": "Get Shawrma",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "schema": {},
+              "name": "id",
+              "in": "path",
+              "example": ""
+            }
+          ]
+        }
+      }
+    },
+    "/shawrma": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Shawrma"
+        ],
+        "operationId": "f2645d3f-d1c7-4435-a821-66ad27b902ac",
+        "summary": "Create Shawrma",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "required": true,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "parameters": []
+        }
+      },
+      "get": {
+        "description": "",
+        "tags": [
+          "Shawrma"
+        ],
+        "operationId": "01f8e244-5aa5-4663-9f2f-3da1eed2f723",
+        "summary": "List Shawrmas",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "{ id: string; deletedAt: Date; createdAt: Date; updatedAt: Date; kind: string; }[]"
+                        },
+                        "meta": {
+                          "type": "{ hasNextPage: boolean; hasPreviousPage: boolean; pageSize: number; currentPage: number; totalCount: number; totalPages: number; }"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "schema": {
+                "type": "number",
+                "minimum": 1
+              },
+              "name": "pageSize",
+              "in": "query",
+              "example": ""
+            },
+            {
+              "schema": {
+                "type": "number",
+                "minimum": 1
+              },
+              "name": "pageNo",
+              "in": "query",
+              "example": ""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "A URI reference [RFC3986] that identifies the problem type."
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem type."
+          },
+          "status": {
+            "type": "integer",
+            "description": "The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem."
+          },
+          "instance": {
+            "type": "string",
+            "description": "A URI reference that identifies the specific occurrence of the problem."
+          },
+          "errors": {
+            "type": "object",
+            "description": "Validation errors",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}
