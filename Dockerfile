@@ -36,4 +36,4 @@ COPY dist/ /app
 
 # List the contents of the /app directory
 # Start the server by default, this can be overwritten at runtime
-CMD [ "node" ,"dist/index.js" ]
+CMD [ "npm", "run", "start:prod" ]
