@@ -31,7 +31,7 @@ ENV NODE_ENV=production
 FROM base
 
 # Copy built application
-COPY dist /app
+COPY dist .
 
 # Start the server by default, this can be overwritten at runtime
 CMD [ "npm", "run", "start:prod" ]
