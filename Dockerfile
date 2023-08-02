@@ -30,8 +30,12 @@ ENV NODE_ENV=production
 # Final stage for app image
 # FROM base
 
+# List the contents of the /app directory
+RUN ls -la /app
 # Copy built application
 COPY dist/ /app
 
+# List the contents of the /app directory
+RUN ls -la /app
 # Start the server by default, this can be overwritten at runtime
 CMD [ "npm", "run", "start:prod" ]
