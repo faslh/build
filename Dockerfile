@@ -28,10 +28,10 @@ ENV NODE_ENV=production
 
 
 # Final stage for app image
-FROM base
+# FROM base
 
 # Copy built application
-COPY dist .
+COPY dist/ /app
 
 # Start the server by default, this can be overwritten at runtime
 CMD [ "npm", "run", "start:prod" ]
