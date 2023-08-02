@@ -39,15 +39,15 @@ jobs:
           directory: ./
           file_name: ./dist/.env
           fail_on_empty: false
+      - id: deploy
+        name: Deploy to Fly.io
+        run: flyctl deploy --remote-only --config ./deploy.toml --verbose
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
       - name: Import secrets into Fly
         run: |-
           flyctl secrets import < ./dist/.env --config ./deploy.toml 
           rm -f ./dist/.env
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-      - id: deploy
-        name: Deploy to Fly.io
-        run: flyctl deploy --remote-only --config ./deploy.toml --verbose
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
       - uses: fjogeleit/http-request-action@v1
