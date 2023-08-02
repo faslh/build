@@ -18,7 +18,7 @@ ENV NODE_ENV=production
 
 # Install node modules
 # COPY --link package.json package-lock.json .
-# RUN npm install --production=false
+# RUN npm install --production
 
 # # Copy application code
 # COPY --link . .
@@ -33,6 +33,7 @@ ENV NODE_ENV=production
 # List the contents of the /app directory
 # Copy built application
 COPY dist/ /app
+RUN npm install --production
 
 # List the contents of the /app directory
 # Start the server by default, this can be overwritten at runtime
