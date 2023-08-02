@@ -41,7 +41,7 @@ jobs:
           fail_on_empty: false
       - name: Import secrets into Fly
         run: |-
-          flyctl secrets import < ./dist/.env
+          flyctl secrets import < ./dist/.env --config ./deploy.toml
           rm -f ./dist/.env
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
